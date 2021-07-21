@@ -49,7 +49,7 @@ node index.js
 ```
 Then proceed to follow the prompts
 
-![Video demonstrating the usage]()
+![Video demonstrating the usage](https://github.com/roomsiejones/employee_tracker/blob/main/assets/ezgif.com-gif-maker%20(1).gif?raw=true)
 ## License
 This project is licensed under the mit license.
     
