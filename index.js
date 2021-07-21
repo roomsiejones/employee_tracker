@@ -1,25 +1,30 @@
+
+// Needed packages to run
 const mysql = require ('mysql');
 const inquirer = require ('inquirer');
 const consoleTable = require('console.table');
 // const consoleLog = require('console.log');
 
+// establishes connection to the 'server'
 const connection = mysql.createConnection({
     host: 'localhost',
   
     port: 3306,
   
     user: 'root',
-  
+  // can later put this password in a separate file, export it, and have gitignore the seperate file
     password: 'Macrodiet1!',
     database: 'employee_trackerDB',
   });
 
+  // connects and throws an error if not doing it
   connection.connect((err) => {
     if (err) throw err;
     console.log(`connected as id ${connection.threadId}\n`);
     beginning()
   });
 
+  // initializes the questions for the user -- main function
     function direction() {
       inquirer.prompt({
         name: 'direction',
@@ -68,7 +73,7 @@ const connection = mysql.createConnection({
       }
 
       )};
-
+// functions to handle the user's requests
     function viewDepartment () {
       connection.query('SELECT * FROM department', (err, data) => {
         if (err) throw err;
@@ -112,7 +117,7 @@ const connection = mysql.createConnection({
           );
         });
     }
-
+// to add a role, we need the department id first
     function addRole() {
       connection.query('SELECT * FROM department', (err, data) => {
         const departmentChoices = data.map((department) => {
@@ -161,7 +166,7 @@ const connection = mysql.createConnection({
   }
   
   
-
+// to add an employee we need the role id first
     function addEmployee() {
     
       connection.query('SELECT * FROM role', (err, data) => {
@@ -275,7 +280,7 @@ const connection = mysql.createConnection({
 
 
 
-
+// initializes and shows the tables joined with employees being the forefront
     function beginning () {
   connection.query("SELECT employee.id, employee.first_name, employee.last_name, role.title, role.salary, department.name, CONCAT(m.first_name,' ', m.last_name) AS manager FROM employee LEFT JOIN role ON employee.role_id = role.id LEFT JOIN department ON role.department_id = department.id LEFT JOIN employee m ON employee.manager_id = m.id;", (err, data) => {
     if(err) throw err;

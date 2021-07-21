@@ -1,3 +1,4 @@
+-- this file gives starter values for the table in mysql when ran with a query.
 INSERT INTO department (name)
 VALUES ("Administration"), ("Instructional"), ("Cafeteria");
 

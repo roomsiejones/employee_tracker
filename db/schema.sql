@@ -1,3 +1,5 @@
+-- this file drops the database if it exists and creates the baseline db and tables needed when ran in mysql as a query
+
 DROP DATABASE IF EXISTS employee_trackerDB;
 
 CREATE DATABASE employee_trackerDB;
