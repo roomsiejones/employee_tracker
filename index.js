@@ -1,5 +1,6 @@
 const mysql = require ('mysql');
 const inquirer = require ('inquirer');
+const console = require('console.table');
 
 const connection = mysql.createConnection({
     host: 'localhost',
@@ -158,8 +159,7 @@ const connection = mysql.createConnection({
     });
   }
   
-  'SELECT first_name, last_name, manager_id FROM employee',
-    'WHERE employee.id = manager_id';
+  
 
     function addEmployee() {
     

@@ -10,8 +10,6 @@ CREATE TABLE department (
     PRIMARY KEY (id)
 );
 
-INSERT INTO department (name)
-VALUES ("Administration"), ("Instructional"), ("Cafeteria"), ("Janitorial");
 
 CREATE TABLE role (
     id INT NOT NULL AUTO_INCREMENT,
@@ -22,8 +20,6 @@ CREATE TABLE role (
     FOREIGN KEY(department_id) REFERENCES department(id)
 );
 
-INSERT INTO role (title, salary, department_id)
-VALUES ('Principal', 120000, 1), ('Assistant Principal', 100000, 1), ("Counselor", 50000, 1), ("Secretary", 30000, 1);
 
 CREATE TABLE employee (
     id INT NOT NULL AUTO_INCREMENT,
@@ -36,5 +32,3 @@ CREATE TABLE employee (
     FOREIGN KEY (manager_id) REFERENCES employee (id)
 );
 
-INSERT INTO employee (first_name, last_name, role_id, manager_id)
-VALUES ('Jonathon', 'Renaud', 1, null), ('Madame', 'McCroan', 2, 1), ('George', 'McPhearney', 3, 1), ('Lord', 'Titherton', 4, 1); 
